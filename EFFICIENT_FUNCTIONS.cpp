@@ -115,5 +115,8 @@ long long C(int n, int r, int MOD)
     return (f[n]*((InverseEuler(f[r], MOD) * InverseEuler(f[n-r], MOD)) % MOD)) % MOD;
 }
 
-
+//most efficient way to check power of 2
+int is_power_of_two(unsigned long long x) {
+    return x && (x & (x - 1)) == 0;
+}
 
