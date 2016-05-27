@@ -120,3 +120,20 @@ int is_power_of_two(unsigned long long x) {
     return x && (x & (x - 1)) == 0;
 }
 
+//XOR from 1 to n is
+if n % 2 == 1 {
+    result = (n % 4 == 1) ? 1 : 0;
+} else {
+    result = (n % 4 == 0) ? n : n + 1;
+}
+
+//Xor of even numbers from 1 to n .
+long long int Even_Xor(long long int n){
+    if(n%8==0){
+        return n;
+    }
+    else if(n%8==2) return 2;
+        else if(n%8==6) return 0;
+        else if(n%8==4) return n+2;
+    return 0;
+        }
