@@ -137,3 +137,10 @@ long long int Even_Xor(long long int n){
         else if(n%8==4) return n+2;
     return 0;
         }
+
+
+//While working with subset ques always count the the occurance of each element in all subsets.
+// easier than 2^n subsets,.
+//for example find sum of all subsets of numbers formed from substring of a string .
+
+ 
