@@ -153,3 +153,16 @@ long long int Even_Xor(long long int n){
 /* for eg 100 29 330 47   will result in a matrix    100 105 330 47 ->  105 330 330
           5   105 206 27  
             above NxM is 2x3 and axb is 2x2
+
+
+//If u have multiple entries of same integer n a sorted array 
+// to find the first occurance of that enntry use\
+/*
+lower_bound(arr.begin(),arr.end(),entry) 
+this will reutrn the iterator for first occurance 
+or the iterator till the point where the value is not less than the entry
+
+for eg 1 2 34 50 60
+lower_bound of 40 will return iterator to value 50.
+same goes for upper bound which return last occurance +1 iterator.
+*/
