@@ -143,4 +143,13 @@ long long int Even_Xor(long long int n){
 // easier than 2^n subsets,.
 //for example find sum of all subsets of numbers formed from substring of a string .
 
- 
+
+
+//incase of finding something in submatrices of a 2d matrix try to compress
+// the submatrix in left top corner of submatrix and store the result there
+//for example find maximum of all axb matrices in NxM matrix
+//comrpess the maximum of b columns to begining coumn of submatrix
+//compress the maximum of a rows to beginning row of submatrix
+/* for eg 100 29 330 47   will result in a matrix    100 105 330 47 ->  105 330 330
+          5   105 206 27  
+            above NxM is 2x3 and axb is 2x2
