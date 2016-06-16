@@ -166,3 +166,8 @@ for eg 1 2 34 50 60
 lower_bound of 40 will return iterator to value 50.
 same goes for upper bound which return last occurance +1 iterator.
 */
+
+//For finding all occurances of a string in another string ,
+//rather than using sol of O(m*n) use KMP algorithm O(n) time
+// For reference See code of spoj/NHAY
+
