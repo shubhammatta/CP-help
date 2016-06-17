@@ -171,3 +171,12 @@ same goes for upper bound which return last occurance +1 iterator.
 //rather than using sol of O(m*n) use KMP algorithm O(n) time
 // For reference See code of spoj/NHAY
 
+/*
+Applications of Suffix Tree
+Suffix tree can be used for a wide range of problems. Following are some famous problems where Suffix Trees provide optimal time complexity solution.
+1) Pattern Searching
+2) Finding the longest repeated substring
+3) Finding the longest common substring
+4) Finding the longest palindrome in a string
+Also if you want to create a subset with distict members
+*/
