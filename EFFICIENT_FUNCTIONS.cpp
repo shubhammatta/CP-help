@@ -139,6 +139,12 @@ long long int Even_Xor(long long int n){
         }
 
 
+<<<<<<< HEAD
+//graph theory in case of compliment graph rather than a adjacency matrix make adjacency list
+// And do it normally but start excluding edges that are connected via an edge 
+// For Reference See hackerrank ques Rust and Murderer
+        
+=======
 //While working with subset ques always count the the occurance of each element in all subsets.
 // easier than 2^n subsets,.
 //for example find sum of all subsets of numbers formed from substring of a string .
@@ -180,3 +186,4 @@ Suffix tree can be used for a wide range of problems. Following are some famous 
 4) Finding the longest palindrome in a string
 Also if you want to create a subset with distict members
 */
+>>>>>>> e6643081639786ee23b0d0370d9dda5c94a22dcb
