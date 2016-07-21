@@ -133,10 +133,10 @@ long long int Even_Xor(long long int n){
         return n;
     }
     else if(n%8==2) return 2;
-        else if(n%8==6) return 0;
-        else if(n%8==4) return n+2;
+    else if(n%8==6) return 0;
+    else if(n%8==4) return n+2;
     return 0;
-        }
+}
 
 
 <<<<<<< HEAD
@@ -174,7 +174,7 @@ same goes for upper bound which return last occurance +1 iterator.
 */
 
 //For finding all occurances of a string in another string ,
-//rather than using sol of O(m*n) use KMP algorithm O(n) time
+//rather than using sol of O(m*n) use KMP algorithm O(n+m) time
 // For reference See code of spoj/NHAY
 
 /*
@@ -187,3 +187,46 @@ Suffix tree can be used for a wide range of problems. Following are some famous 
 Also if you want to create a subset with distict members
 */
 >>>>>>> e6643081639786ee23b0d0370d9dda5c94a22dcb
+
+//while working with tree
+vi subtreesize;
+bool *visited;
+class tree
+{
+    public:
+        int n;
+        vvi adjlis;
+
+        tree(int a)
+        {
+            n = a;
+            vi temp;
+            for(int i=0; i<n; i++)
+                adjlis.push_back(temp);
+        }
+
+        void addedge(int node1, int node2)
+        {
+            adjlis[node1-1].push_back(node2-1);
+            adjlis[node2-1].push_back(node1-1);
+        }
+};
+//gives size of tree under a node 
+void ssize(tree& a, int curr)
+{
+    for(int i=0; i < a.adjlis[curr].size(); i++)
+    {
+        if(!visited[a.adjlis[curr][i]])
+        {
+            visited[a.adjlis[curr][i]] = true;
+            ssize(a, a.adjlis[curr][i]);
+            subtreesize[curr] += subtreesize[a.adjlis[curr][i]];
+        }
+    }
+}
+
+//use suffix array... see question BEADS ON SPOJ
+//read about suffix array important;
+
+//best example of Knapsack problem ... Goto SCUBADIV on spoj .... learnt a lot.
+
