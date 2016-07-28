@@ -138,17 +138,19 @@ long long int Even_Xor(long long int n){
     return 0;
 }
 
+//******************************************************************
 
-<<<<<<< HEAD
 //graph theory in case of compliment graph rather than a adjacency matrix make adjacency list
 // And do it normally but start excluding edges that are connected via an edge 
 // For Reference See hackerrank ques Rust and Murderer
         
-=======
+//******************************************************************
+
 //While working with subset ques always count the the occurance of each element in all subsets.
 // easier than 2^n subsets,.
 //for example find sum of all subsets of numbers formed from substring of a string .
 
+//******************************************************************
 
 
 //incase of finding something in submatrices of a 2d matrix try to compress
@@ -160,6 +162,7 @@ long long int Even_Xor(long long int n){
           5   105 206 27  
             above NxM is 2x3 and axb is 2x2
 
+//******************************************************************
 
 //If u have multiple entries of same integer n a sorted array 
 // to find the first occurance of that enntry use\
@@ -168,16 +171,20 @@ lower_bound(arr.begin(),arr.end(),entry)
 this will reutrn the iterator for first occurance 
 or the iterator till the point where the value is not less than the entry
 
+//******************************************************************
+
 for eg 1 2 34 50 60
 lower_bound of 40 will return iterator to value 50.
 same goes for upper bound which return last occurance +1 iterator.
 */
 
+//******************************************************************
+
 //For finding all occurances of a string in another string ,
 //rather than using sol of O(m*n) use KMP algorithm O(n+m) time
 // For reference See code of spoj/NHAY
 
-/*
+/******************************************************************
 Applications of Suffix Tree
 Suffix tree can be used for a wide range of problems. Following are some famous problems where Suffix Trees provide optimal time complexity solution.
 1) Pattern Searching
@@ -186,7 +193,7 @@ Suffix tree can be used for a wide range of problems. Following are some famous 
 4) Finding the longest palindrome in a string
 Also if you want to create a subset with distict members
 */
->>>>>>> e6643081639786ee23b0d0370d9dda5c94a22dcb
+//******************************************************
 
 //while working with tree
 vi subtreesize;
@@ -225,8 +232,111 @@ void ssize(tree& a, int curr)
     }
 }
 
+//**************************************************************
+
 //use suffix array... see question BEADS ON SPOJ
 //read about suffix array important;
 
+//**************************************************************
+
 //best example of Knapsack problem ... Goto SCUBADIV on spoj .... learnt a lot.
+
+//***************************************************************
+
+//finding a minimum window containing all character of another string 
+// Returns false if no valid window is found. Else returns 
+// true and updates minWindowBegin and minWindowEnd with the 
+// starting and ending position of the minimum window.
+bool findMinWindow(const char *str, const char *pattern, 
+                   int &minWindowBegin, int &minWindowEnd) {
+  int N = strlen(str);
+  int M = strlen(pattern);
+  int minWindowLen = INT_MAX;
+   
+  // hash table init all to 0s
+  // used to check how many letters left in T to be filled
+  int needToFill[256] = {0};
+ 
+  for (int i = 0; i < M; i++)
+    needToFill[pattern[i]]++;
+ 
+  // set the rest to -1 so we know that letter is not in T
+  for (int i = 0; i < 256; i++)
+    if (needToFill[i] == 0)
+      needToFill[i] = -1;
+ 
+  // array of queues, each corresponds to a unique char in T
+  queue<int> q[256];
+ 
+  // maintains a sorted map (maps indices to char), 
+  // the first and last element tells us the 
+  // starting and ending position of the window
+  map<int,char> m;
+ 
+  for (int i = 0; i < N; i++) {
+    // skips characters not in T
+    if (needToFill[str[i]] == -1) continue;
+    
+    // push character to queue
+    if (q[str[i]].size() < needToFill[str[i]]) {
+      q[str[i]].push(i);
+      m[i] = str[i];
+    }
+    // replace the character in the queue 
+    // and updates the corresponding element in the map
+    else {
+      int idxToErase = q[str[i]].front();
+      map<int,char>::iterator it = m.find(idxToErase);
+      m.erase(it);
+      m[i] = str[i];
+      q[str[i]].pop();
+      q[str[i]].push(i);
+    }
+ 
+    // found a window, check for minimum
+    if (m.size() == M) {
+      int end = m.rbegin()->first;
+      int begin = m.begin()->first;
+      int windowLen = end - begin + 1;
+      if (windowLen < minWindowLen) {
+        minWindowLen = windowLen;
+        minWindowBegin = begin;
+        minWindowEnd = end;
+      }
+    } // end if
+  } // end for
+   
+  return (m.size() == M) ? true : false;
+}
+
+///**********************************************************
+
+struct union_find
+{
+    vector<int> parent;
+    union_find(int n)
+    {
+        parent = vector<int>(n);
+        for (int i = 0; i < n; i++)
+        {
+            parent[i] = i;
+        }
+    }
+    int find(int x)
+    {
+        if (parent[x] == x)
+        {
+            return x;
+        }
+        else
+        {
+            parent[x] = find(parent[x]);
+            return parent[x];
+        }
+    }
+    void unite(int x, int y)
+    {
+        parent[find(x)] = find(y);
+    }
+};
 

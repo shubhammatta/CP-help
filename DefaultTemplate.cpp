@@ -4,7 +4,7 @@
                           Author : SHUBHAM MATTA
 						  HACKERRANK HANDLE: voidcoder
                           SPOJ Handle: shubhammatta
-                          Codeforces Handle: ironman1
+                          Codeforces Handle: voidCoder
  
 **************************************************************************************************************
 */
@@ -31,8 +31,6 @@
 
 #define FOR(i,start,end) for(size_t i=start;i<end;i++)
 #define rFOR(i,end,start) for(size_t i=end,i>=start;i--)
-#define MOD 1000000007
-#define line cout<<endl
 #define ll long long int
 #define ld long double
 #define si(x) scanf("%d",&x)
@@ -46,14 +44,12 @@
 #define vvi vector< vi >
 #define pb push_back
 #define mp make_pair
-#define memory(x,y) memset(x,y,sizeof(x))
 #define max_int_value 2147483647
 #define max_long_value 9223372036854775807
-#define ub(X,v) upper_bound(X.begin(),X.end(),v)
-#define lb(X,v) lower_bound(X.begin(),X.end(),v)
 #define ii pair<ll,ll>
 #define F first
 #define S second
+#define fast_io ios_base::sync_with_stdio(0);cin.tie(0)
 
 using namespace std;
 inline ll get()
@@ -82,17 +78,15 @@ ll powerwithmodulus(ll base, ll exponent,ll modulus){
     return result;
 }
 
-void printArray(int arr[] , int n){ FOR(i,0,n) cout << arr[i] << " " ; line;}
+void printArray(int arr[] , int n){ FOR(i,0,n) cout << arr[i] << " " ; cout << endl;}
 
+ll largestPowerOf2(ll n)
+{
+    return (ll)pow(2, floor(log(n) / log(2)));
+}
 
 int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-    //freopen("route.in","r",stdin);
-    //freopen("route.out","w",stdout);
-    //freopen("F:/in.txt", "r", stdin);
-    //freopen("F:/output.txt", "w", stdout);
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    fast_io;
     return 0;
 }
 
